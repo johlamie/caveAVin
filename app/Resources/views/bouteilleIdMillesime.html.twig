@@ -1,0 +1,24 @@
+{# app/Resources/views/bouteilleIdMillesime.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1>Les bouteilles correspondant a ce vin sont :</h1>
+    <table class="table">
+        <thead>
+        <tr><th>Vin</th> <th>millesime </th> <th>Prix</th> <th> quantite</th> <th>note</th> <th>date_note</th></tr>
+        </thead>
+        <tbody>
+        {% for bouteille in bouteilles %}
+            <tr>
+                <td> {{ bouteille.idVin.nomVin }} </td>
+                <td> {{ bouteille.millesime }}</td>
+                <td> {{ bouteille.prix }} </td>
+                <td> {{ bouteille.quantite }} </td>
+                <td> {{ bouteille.note }} </td>
+                <td> {{ bouteille.dateNote }} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

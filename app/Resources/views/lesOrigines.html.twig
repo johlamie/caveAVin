@@ -1,0 +1,24 @@
+{# app/Resources/views/lesOrigines.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1 class="article-title">LISTE DES ORIGINES</h1> <br>
+
+    <a href="{{ path('insertOrigine') }}" >Ajouter une origine </a><br>
+    <table class="table">
+        <thead>
+        <tr><th>Appellation </th> <th>Region</th><th>Options</th></tr>
+        </thead>
+        <tbody>
+        {% for origine in origines %}
+            <tr>
+                <td> {{ origine.nomAppellation }}</td>
+                <td> {{ origine.region }} </td>
+                <td>  <a href="{{ path('updateOrigine',{'id':origine.idAppellation }) }}">Update</a> |
+                    <a href="{{ path('deleteOrigine',{'id':origine.idAppellation}) }}">Delete</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

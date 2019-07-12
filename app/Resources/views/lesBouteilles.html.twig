@@ -1,0 +1,32 @@
+{# app/Resources/views/lesBouteilles.html.twig #}
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+
+    <h1 class="article-title">LISTE DES BOUTEILLES</h1> <br>
+
+    <a href="{{ path('insertBouteille') }}" >Ajouter une Bouteille </a><br>
+<table class="table">
+    <thead>
+    <tr><th>Vin</th> <th>millesime </th> <th>Prix</th> <th> quantite</th> <th>note</th> <th>date_note</th> <th>Options</th>  </tr>
+    </thead>
+    <tbody>
+    {% for bouteille in bouteilles %}
+        <tr>
+            <td> {{ bouteille.idVin.nomVin }} </td>
+            <td> {{ bouteille.millesime }}</td>
+            <td> {{ bouteille.prix }} </td>
+            <td> {{ bouteille.quantite }} </td>
+            <td> {{ bouteille.note }} </td>
+            <td> {{ bouteille.dateNote }} </td>
+            <td>  <a href="{{ path('updateBouteille',{'id':bouteille.idVin.idVin,'millesime': bouteille.millesime}) }}"> Update</a> |
+                <a href="{{ path('deleteBouteille',{'id':bouteille.idVin.idVin,'millesime': bouteille.millesime}) }}"> Delete</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

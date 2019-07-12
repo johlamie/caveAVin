@@ -1,0 +1,21 @@
+{# app/Resources/views/vinIdAppellation.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1>Les vins correspondant a cette région sont :</h1>
+    <table class="table">
+        <thead>
+        <tr><th>Nom des vins</th> <th>Types</th> <th>Provenance</th></tr>
+        </thead>
+        <tbody>
+        {% for v in vin %}
+            <tr>
+                <td> {{ v.nomVin }}</td>
+                <td> {{ v.typeVin }} </td>
+                <td> {{ v.idAppellation.nomAppellation }} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

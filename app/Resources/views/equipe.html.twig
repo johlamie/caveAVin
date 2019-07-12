@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Equipe - Cave à Vin</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon.jpeg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/blog.css">
+</head>
+
+<body>
+<!-- START NAV -->
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+<nav class="navbar is-primary">
+    {% else %}
+    <nav class="navbar is-danger">
+        {% endif %}
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" >
+                    <img src="images/fac.jpg" alt="Logo">
+                </a>
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                            <span></span>
+                    <span></span>
+                    <span></span>
+                    </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item is-active" href="/">
+                        Home
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Tables
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="/Origine" >
+                                Origine
+                            </a>
+                            <a class="navbar-item" href="/vin" >
+                                Vin
+                            </a>
+                            {#<hr class="navbar-divider">#}
+                            <a class="navbar-item" href="/Bouteille" >
+                                Bouteille
+                            </a>
+                        </div>
+                    </div>
+                    <a class="navbar-item" href="/equipe">
+                        Equipes
+                    </a>
+                    <a class="navbar-item" href="{{ path('home') }}#paramCo">
+                        Aide ?
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link is-danger">
+                            Compte
+                        </a>
+                        <div class="navbar-dropdown">
+                            {#<a class="navbar-item">#}
+
+                            {#</a>#}
+                            {##}
+                            {#<hr class="navbar-divider">#}
+                            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <a class="navbar-item" href="/logout" >
+                                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                                <span>logout</span>
+                                {% else %}
+                                <a class="navbar-item" href="/login" >
+                                    <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                                    <span>login</span>
+                                    {% endif %}
+
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- END NAV -->
+
+
+
+    <div class="container">
+    <div id="flow">
+        <span class="flow-1"></span>
+        <span class="flow-2"></span>
+        <span class="flow-3"></span>
+    </div>
+    <div class="section">
+
+        <!-- Developers -->
+        <div class="row columns">
+            <div class="column is-one-third">
+                <div class="card large">
+                    <div class="card-image">
+                        <figure class="image">
+                            <img src="images/johnCouv.jpg" alt="Image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-96x96">
+                                    <img src="images/john.jpeg" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4 no-padding">Doubalo</p>
+                                <p><span class="title is-6"><a href="https://www-apps.univ-lehavre.fr/forge/ld162555">@ld162555</a></span></p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            Etudiant en 3ème année de licence informatique, passionné par l'informatique
+                            et les nouvelles technologies.
+                            <div class="background-icon"><span class="icon-twitter"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="card large">
+                    <div class="card-image">
+                        <figure class="image">
+                            <img src="images/jawCouv.jpg" alt="Image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-96x96">
+                                    <img src="images/jaw.png">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4 no-padding">Jawaher</p>
+                                <p><span class="title is-6"><a href="https://www-apps.univ-lehavre.fr/forge/tj177314">@tj177314</a></span></p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            Etudiante en 3ème année de licence informatique, passionné par l'informatique
+                            et les nouvelles technologies.
+                            <div class="background-icon"><span class="icon-facebook"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="card large">
+                    <div class="card-image">
+                        <figure class="image">
+                            <img src="images/agCouv.jpg" alt="Image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-96x96">
+                                    <img src="images/gass.png" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4 no-padding">AbdoulKader</p>
+                                <p><span class="title is-6"><a href="https://www-apps.univ-lehavre.fr/forge/ga141227">@ga141227</a></span></p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            Etudiant en 3ème année de licence informatique, passionné par l'informatique
+                            et les nouvelles technologies.
+                            <div class="background-icon"><span class="icon-barcode"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Developers -->
+
+    </div>
+</div>
+
+    <footer class="footer has-text-centered">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-desktop is-offset-2-desktop">
+                    <p> &copy 2019, Doubalo LAMIEN, Abdoulkader GASSAMA, Jawaher TAHEREDDINE </p>
+                    Powered by Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}
+                    and Bulma 0.7.4
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script async type="text/javascript" src="_javascript/bulma.js"></script>
+
+
+</body>
+
+</html>

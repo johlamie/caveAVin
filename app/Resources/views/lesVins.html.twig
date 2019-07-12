@@ -1,0 +1,26 @@
+{# app/Resources/views/lesVins.html.twig #}
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1 class="article-title">LISTE DES VINS</h1> <br>
+
+    <a href="{{ path('insertVin') }}" >Ajouter un vin </a><br>
+
+<table class="table">
+    <thead>
+    <tr><th>Nom des vins</th> <th>Types</th> <th>Provenance</th> <th>Options</th>  </tr>
+    </thead>
+    <tbody>
+    {% for vin in vins %}
+        <tr>
+            <td> {{ vin.nomVin }}</td>
+            <td> {{ vin.typeVin }} </td>
+            <td> {{ vin.idAppellation.nomAppellation }} </td>
+            <td>  <a href="{{ path('modifierVin',{'id':vin.idVin}) }}">Update</a> |
+                <a href="{{ path('deleteVin',{'id':vin.idVin}) }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

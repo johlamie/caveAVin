@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cave à Vin</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+    <body>
+
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <p class="navbar-item">
+                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            </p>
+            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="/">
+                    Home
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <p class="navbar-link" >
+                        Tables
+                    </p>
+                    <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="/Origine">
+                            Origine
+                        </a>
+                        <a class="navbar-item" href="/vin">
+                            Vin
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" href="/Bouteille">
+                            Bouteille
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <a class="bd-tw-button button" href="/logout">
+              <span class="icon">
+                <i class="fab fa-twitter"></i>
+              </span>
+                                <span>
+                Logout
+              </span>
+                            </a>
+                        </p>
+                        {#<p class="control">#}
+                        {#<a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.7.4/bulma-0.7.4.zip">#}
+                        {#<span class="icon">#}
+                        {#<i class="fas fa-download"></i>#}
+                        {#</span>#}
+                        {#<span>Download</span>#}
+                        {#</a>#}
+                        {#</p>#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+        {% if app.request.get('_route') == 'home' %}
+        <section class="section ">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-one-quarter-desktop">
+                        <aside class="menu is-hidden-touch">
+                            <p class="menu-label">
+                                <a href="{{ path('acceuilOrigine') }}">Region</a>
+                            </p>
+                            {% for origine in origines %}
+                                <p>{{ origine.nomAppellation }}</p>
+                            {% endfor %}
+
+                            <p class="menu-label">
+                                <a href="{{ path('acceuilVin') }}">Vin</a>
+                            </p>
+                            {% for vin in vins %}
+                                <p>{{ vin.nomVin }}</p>
+                            {% endfor %}
+
+
+                        </aside>
+                    </div> <!-- is-one-quarter-desktop -->
+
+                    <div class ="column is-three-quarters">
+
+                    </div> <!--columns-->
+                </div><!--Container-->
+        </section>
+
+
+        {% else %}
+
+
+            <section class="section ">
+                <div class="container">
+                    <div class="columns">
+                        <div class="column is-one-quarter-desktop">
+                            <aside class="menu is-hidden-touch">
+                                <p class="menu-label">
+                                    <a href="{{ path('acceuilOrigine') }}">Region</a>
+                                </p>
+                                {% for origine in origines %}
+                                    <p>{{ origine.nomAppellation }}</p>
+                                {% endfor %}
+
+                                <p class="menu-label">
+                                    <a href="{{ path('acceuilVin') }}">Vin</a>
+                                </p>
+                                {% for vin in vins %}
+                                    <p>{{ vin.nomVin }}</p>
+                                {% endfor %}
+
+
+                            </aside>
+                        </div> <!-- is-one-quarter-desktop -->
+
+
+
+
+                        <div class ="column is-three-quarters">
+
+                            {#<div class="tabs is-boxed">#}
+                                {#<ul>#}
+                                    {#<li>#}
+                                        {#<a href="{{ path('acceuilOrigine') }}">#}
+                                            {#<span>Origine</span>#}
+                                        {#</a>#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<a href="{{ path('acceuilVin') }}">#}
+                                            {#<span>Vin</span>#}
+                                        {#</a>#}
+                                    {#</li>#}
+                                    {#<li>#}
+                                        {#<a href="{{ path('acceuil') }}" >#}
+                                            {#<span>Bouteille</span>#}
+                                        {#</a>#}
+                                    {#</li>#}
+
+                                {#</ul>#}
+                            {#</div>#}
+
+
+                        {% block body %}{% endblock %}
+                        {% block javascripts %}{% endblock %}
+                        </div>
+
+
+                    </div> <!--columns-->
+                </div><!--Container-->
+            </section>
+    {% endif %}
+
+
+
+    <footer class="footer has-text-centered">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-desktop is-offset-2-desktop">
+                    <p> &copy 2019, Doubalo LAMIEN, Abdoulkader GASSAMA, Jawaher TAHEREDDINE </p>
+                    Powered by Symfony {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}
+                    and Bulma 0.7.4
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    </body>
+</html>

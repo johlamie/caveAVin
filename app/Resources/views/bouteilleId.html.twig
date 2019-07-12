@@ -1,0 +1,17 @@
+{# app/Resources/views/bouteille.html.twig #}
+
+
+
+<table border="1">
+    <tr><th>Identifiant</th> <th>millesime </th> <th>Prix</th> <th> quantite</th> <th>note</th> <th>date_note</th>  </tr>
+    {% for bouteille in bout %}
+        <tr>
+            <td> {{ bouteille.idVin.idVin }} </td>
+            <td> {{ bouteille.millesime }}</td>
+            <td> {{ bouteille.prix }} </td>
+            <td> {{ bouteille.quantite }} </td>
+            <td> {{ bouteille.note }} </td>
+            <td> {{ bouteille.dateNote }} </td>
+        </tr>
+    {% endfor %}
+</table>
